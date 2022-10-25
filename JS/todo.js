@@ -81,7 +81,7 @@ function addToLocalStorage(todos) {
 }
 
 // function helps to get everything from local storage
-function getFromLocalStorage {
+function getFromLocalStorage() {
     const reference = localStorage.getItem('todos');
     // if reference exists
     if (reference) {
@@ -93,3 +93,43 @@ function getFromLocalStorage {
 
 // initially get everything from localStorage
 getFromLocalStorage();
+
+// after that addEventListener <ul> with class=todoItems. Because we need to listen for click event in all delete-button and checkbox
+todoItemsList.addEventListener('click', function(event) {
+    // Check if the event is on checkbox
+    if (event.target.type === 'checkbox') {
+        // toggle the state
+        toggle(event.target.parentElement.getAttribute('data-key'));
+    }
+
+    // Check if that is delete-button
+    if (event.target.classList.contains('delete-button')) {
+        // get id from data-key attribute's value of parent <li> where the delete butto is present
+        deleteTodo(event.target.parentElement.getAttribute('data-key'));
+    }
+});
+
+// toggle the value to completed and not completed
+function toggle(id) {
+    todos.forEach(function(item) {
+        // Use == not ===, because here types are different. One is number and other is string
+        if (item.id == id) {
+            // toggle the value
+            item.completed = !item.completed;
+        }
+    });
+
+addToLocalStorage(todos);
+}
+
+// Deletes a todo from todos array, then updates localstorage and renders updated list to screen
+function deleteTodo(id) {
+    // Filters out the <li> with the id and updates the todos array
+    todos = todos.filter(function (item) {
+        return item.id != id;
+    });
+
+// Update the localStorage
+addToLocalStorage(todos);
+}
+
