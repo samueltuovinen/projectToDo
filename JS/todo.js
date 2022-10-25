@@ -28,10 +28,12 @@ function addTodo(item) {
 
         // Then add it to todos array
         todos.push(todo);
-        renderTodos(todos); 
+        addToLocalStorage(todos); 
 
         // finally clear the input box value
         todoInput.value = '';
+    } else {
+        alert("Field is empty");
     }
 }
 
@@ -91,24 +93,6 @@ function getFromLocalStorage() {
     }
 }
 
-// initially get everything from localStorage
-getFromLocalStorage();
-
-// after that addEventListener <ul> with class=todoItems. Because we need to listen for click event in all delete-button and checkbox
-todoItemsList.addEventListener('click', function(event) {
-    // Check if the event is on checkbox
-    if (event.target.type === 'checkbox') {
-        // toggle the state
-        toggle(event.target.parentElement.getAttribute('data-key'));
-    }
-
-    // Check if that is delete-button
-    if (event.target.classList.contains('delete-button')) {
-        // get id from data-key attribute's value of parent <li> where the delete butto is present
-        deleteTodo(event.target.parentElement.getAttribute('data-key'));
-    }
-});
-
 // toggle the value to completed and not completed
 function toggle(id) {
     todos.forEach(function(item) {
@@ -132,4 +116,23 @@ function deleteTodo(id) {
 // Update the localStorage
 addToLocalStorage(todos);
 }
+
+// initially get everything from localStorage
+getFromLocalStorage();
+
+// after that addEventListener <ul> with class=todoItems. Because we need to listen for click event in all delete-button and checkbox
+todoItemsList.addEventListener('click', function(event) {
+    // Check if the event is on checkbox
+    if (event.target.type === 'checkbox') {
+        // toggle the state
+        toggle(event.target.parentElement.getAttribute('data-key'));
+    }
+
+    // Check if that is delete-button
+    if (event.target.classList.contains('delete-button')) {
+        // get id from data-key attribute's value of parent <li> where the delete butto is present
+        deleteTodo(event.target.parentElement.getAttribute('data-key'));
+    }
+});
+
 

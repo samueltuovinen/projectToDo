@@ -7,12 +7,12 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    background: linear-gradient(#F00000, #DC281E);
-    font-family: sans-serif;
+    background: rgb(33, 30, 54);
+    font-family: serif;
 }
 button:hover {
     cursor: pointer;
-    background-color: #73E831;
+    background-color: rgb(109, 138, 188);
 }
 ul {
     list-style-type: none;
@@ -41,8 +41,8 @@ h1 {
     font-size: 1rem;
 }
 .add-button {
-    background-color: #0000ff;
-    color: #fff;
+    background-color: white;
+    color: black;
     border: none;
     outline: none;
     border-radius: 5px;
@@ -53,7 +53,7 @@ h1 {
     min-width: 350px;
 }
 .item {
-    background-color: #fff;
+    background-color: rgb(109, 138, 188);
     padding: 10px;
     font-size: 1.1rem;
 }
@@ -70,7 +70,8 @@ h1 {
 }
 .delete-button {
     float: right;
-    background-color: #dc143c;
+    background-color: white;
+    color: black;
     border: none;
     outline: none;
     border-radius: 7px;
