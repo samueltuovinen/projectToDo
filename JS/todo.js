@@ -17,6 +17,7 @@ todoForm.addEventListener('submit', function(event) {
 
 // Function to add todo
 function addTodo(item) {
+
     // if item is not empty
     if (item !== '') {
         // Make a todo object, which has id, name, and completed properties
@@ -32,8 +33,10 @@ function addTodo(item) {
 
         // finally clear the input box value
         todoInput.value = '';
+        todoInput.style.border = "none";
     } else {
         alert("Field is empty");
+        todoInput.style.border = "3px solid red";
     }
 }
 

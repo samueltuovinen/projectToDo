@@ -40,20 +40,23 @@ h1 {
     margin-right: 10px;
     font-size: 1rem;
 }
+
 .add-button {
     background-color: white;
     color: black;
     border: none;
     outline: none;
     border-radius: 5px;
-    padding: 7px;
-    font-size: 1.2rem;
+    padding: 10px;
+    font-size: 1rem;
 }
 .todo-items {
     min-width: 350px;
 }
 .item {
     background-color: rgb(109, 138, 188);
+    border: none;
+    outline: none;
     padding: 10px;
     font-size: 1.1rem;
 }
@@ -70,15 +73,16 @@ h1 {
 }
 .delete-button {
     float: right;
-    background-color: white;
-    color: black;
+    background-color: rgb(33, 30, 54);
+    color: white;
     border: none;
     outline: none;
-    border-radius: 7px;
+    border-radius: 5px;
     padding: 2px 5px;
     margin-left: 10px;
     font-size: 1.1rem;
-    font-weight: 550;
+    font-weight: 500;
+    
 }
 .checked {
     text-decoration: line-through;
