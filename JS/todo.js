@@ -1,9 +1,9 @@
 // Select todo-form
-const todoForm = document.querySelector('.todo-form');
+const todoForm = document.getElementById('todo-form');
 // Select the input box
-const todoInput = document.querySelector('.todo-input');
+const todoInput = document.getElementById('todo-input');
 // Select the <ul> with class="todo-items"
-const todoItemsList = document.querySelector('.todo-items');
+const todoItemsList = document.getElementById('todo-items');
 
 // array hich stores every todos
 let todos = [];

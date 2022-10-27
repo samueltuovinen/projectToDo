@@ -87,3 +87,10 @@ h1 {
 .checked {
     text-decoration: line-through;
 }
+footer {
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding: 20px;
+}

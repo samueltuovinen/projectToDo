@@ -11,20 +11,23 @@
         <div class="container">
             <h1>SHOPPING LIST</h1>
 
-            <form class="todo-form">
-                <input type="text" class="todo-input" placeholder="What i need...">
+            <form class="todo-form" id="todo-form">
+                <input type="text" class="todo-input" id="todo-input" placeholder="What i need...">
                 <button type="submit" class="add-button">Add</button>
             </form>
 
-            <ul class="todo-items">
+            <ul class="todo-items" id="todo-items">
                 <li class="item" data-key="1594003133171">
                     <input class="checkbox" type="checkbox">
                     <button class="delete-button">X</button>
                 </li>
             </ul>
         </div>
-
+        <footer>
+            <p id="left">Items left</p>
+        </footer>
 
         <script src="JS/todo.js"></script>
     </body>
+
 </html>
