@@ -27,6 +27,8 @@ ul {
 h1 {
     color: white;
     font-size: 3rem;
+    border-style: none none solid none;
+    border-color: rgb(109, 138, 188);
 }
 .todo-form {
     margin: 40px 0px;
@@ -39,6 +41,7 @@ h1 {
     padding: 10px;
     margin-right: 10px;
     font-size: 1rem;
+
 }
 
 .add-button {
@@ -57,17 +60,12 @@ h1 {
     background-color: rgb(109, 138, 188);
     border: none;
     outline: none;
+    border-radius: 7px;
     padding: 10px;
+    margin: 10px;
     font-size: 1.1rem;
 }
-.item:first-child {
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-}
-.item:last-child {
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
-}
+
 .checkbox {
     margin-right: 10px;
 }
