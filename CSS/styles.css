@@ -30,10 +30,10 @@ h1 {
     border-style: none none solid none;
     border-color: rgb(109, 138, 188);
 }
-.todo-form {
+.shoplist-form {
     margin: 40px 0px;
 }
-.todo-input {
+.shoplist-input {
     width: 250px;
     border: none;
     outline: none;
@@ -53,7 +53,7 @@ h1 {
     padding: 10px;
     font-size: 1rem;
 }
-.todo-items {
+.shoplist-items {
     min-width: 350px;
 }
 .item {
