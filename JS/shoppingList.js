@@ -1,56 +1,57 @@
-// Select todo-form
+// Valitse shoplist-form
 const shoplistForm = document.getElementById('shoplist-form');
-// Select the input box
+// Valitse input boxi
 const shoplistInput = document.getElementById('shoplist-input');
-// Select the <ul> with class="todo-items"
+// Valitse <ul> ja class="shoplist-items"
 const shoplistItems = document.getElementById('shoplist-items');
 
-// array hich stores every todos
+// lokeroidaan jokainen shopitems
 let shopitems = [];
 
-// Add eventListener on form, and listen for submit event 
+// Lisätääm eventListener form:iin
 shoplistForm.addEventListener('submit', function(event) {
-    // Prevent the page from reloading when submitting the form
+    // Estetään sivua lataamasta uudelleen täyttäessä form:ia
     event.preventDefault();
-    addShoplist(shoplistInput.value); // call addTodo function with input box current value
+    addShoplist(shoplistInput.value); // Kutsutaan shoplistInput functiota, input boxin nykyisen arvon kanssa
 });
 
-// Function to add todo
+// Funktio, jossa shoplist item lisätään 
 function addShoplist(item) {
 
-    // if item is not empty
+    // Jos kenttä ei ole tyhjä
     if (item !== '') {
-        // Make a todo object, which has id, name, and completed properties
+        // luodaan shoplist item, jossa on id, name ja completed arvo.
         const shoplist = {
             id: Date.now(),
             name: item,
             completed: false
         };
 
-        // Then add it to todos array
+        // Lisätään se shopitems lokeroon
         shopitems.push(shoplist);
         addToLocalStorage(shopitems); 
 
-        // finally clear the input box value
+        // tyhjennetään input boxi
         shoplistInput.value = '';
         shoplistInput.style.border = "none";
+        // Jos kenttä tyhjä, kutsutaan alert ja muutetaan input boxin reunat punaiseksi
     } else {
         alert("Field is empty");
         shoplistInput.style.border = "3px solid red";
     }
 }
 
-// Function to render given todos to screen
+// Funktio joka lähettää shopitems:it näytölle
 function renderShoplist(shopitems) {
-    // Clear everything inside <ul> with class="todo-items"
+    // Tyhjennetään kaikki <ul> sisältä 
     shoplistItems.innerHTML = '';
 
-    // Run through each items inside todos
+    // Käy läpi kaikki items shopitems:in sisältä
     shopitems.forEach(function(item) {
-        // Check if item is completed
+        // Tarkista onko item tehty "completed"
         const checked = item.completed ? 'checked': null;
 
-    // Make a <li> element and fill it
+    // Tehdään <li> elementti ja täytetään se
         // <li> </li>
         const li = document.createElement('li');
         // <li class="item"> </li>
@@ -62,7 +63,7 @@ function renderShoplist(shopitems) {
                 Milk
                 <button class="delete-button">X</button>
             </li> */
-        // If item is completed, then add a class to <li> called 'checked', which will add line-through style
+        // Jos item on valmis, lisätään "class" <li> jota kutsutaan "chekced", Se lisää line-through tyylin
         if (item.completed === true) {
             li.classList.add('checked');
         }
@@ -72,25 +73,25 @@ function renderShoplist(shopitems) {
             ${item.name}
             <button class="delete-button">X</button>
             `;
-            // finally add the <li> to the <ul>
+            // lopuksi <li> lisätään <ul>
             shoplistItems.append(li);
         });
 }
 
-// Function to add todos to local storage
+// Funktio, joka lisää shopitems:it local storage:en
 function addToLocalStorage(shopitems) {
-    // conver the array to string then store it
+    // Muuta array string:iksi ja säilytä se
     localStorage.setItem('shopitems', JSON.stringify(shopitems));
-    // Render them to screen
+    // Lähetä ne näytölle
     renderShoplist(shopitems);
 }
 
-// function helps to get everything from local storage
+// funktio joka hakee kaiken local storagesta
 function getFromLocalStorage() {
     const reference = localStorage.getItem('shopitems');
-    // if reference exists
+    // jos reference on olemassa
     if (reference) {
-        // Convert back to array and store it in todos array
+        // Muuta takaisin arrayksi ja säilytä se shopitems array:ssa
         shopitems = JSON.parse(reference);
         renderShoplist(shopitems);
     }
