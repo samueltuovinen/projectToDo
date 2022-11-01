@@ -5,7 +5,7 @@ const shoplistInput = document.getElementById('shoplist-input');
 // Valitse <ul> ja class="shoplist-items"
 const shoplistItems = document.getElementById('shoplist-items');
 
-// lokeroidaan jokainen shopitems
+// array jokainen shopitems
 let shopitems = [];
 
 // Lisätääm eventListener form:iin
@@ -27,13 +27,14 @@ function addShoplist(item) {
             completed: false
         };
 
-        // Lisätään se shopitems lokeroon
+        // Lisätään se shopitems array
         shopitems.push(shoplist);
         addToLocalStorage(shopitems); 
 
         // tyhjennetään input boxi
         shoplistInput.value = '';
         shoplistInput.style.border = "none";
+
         // Jos kenttä tyhjä, kutsutaan alert ja muutetaan input boxin reunat punaiseksi
     } else {
         alert("Field is empty");
@@ -97,12 +98,11 @@ function getFromLocalStorage() {
     }
 }
 
-// toggle the value to completed and not completed
+// Vaihda arvoa completed ja not completed välillä
 function toggle(id) {
     shopitems.forEach(function(item) {
-        // Use == not ===, because here types are different. One is number and other is string
         if (item.id == id) {
-            // toggle the value
+            // vaihda arvo
             item.completed = !item.completed;
         }
     });
@@ -110,33 +110,30 @@ function toggle(id) {
 addToLocalStorage(shopitems);
 }
 
-// Deletes a todo from todos array, then updates localstorage and renders updated list to screen
+// poista item listalta, jonka jälkeen päivitä local storage
 function deleteShopItem(id) {
-    // Filters out the <li> with the id and updates the todos array
+    // Filteröi <li> ja id ulos ja päivitä shopitems array
     shopitems = shopitems.filter(function (item) {
         return item.id != id;
     });
 
-// Update the localStorage
+// päivitä localStorage
 addToLocalStorage(shopitems);
 }
 
-// initially get everything from localStorage
+// hae kaikki local storagesta
 getFromLocalStorage();
 
-// after that addEventListener <ul> with class=todoItems. Because we need to listen for click event in all delete-button and checkbox
+// sen jälkeen lisää addEventListener <ul> yhd. class=shoplistItems
 shoplistItems.addEventListener('click', function(event) {
-    // Check if the event is on checkbox
+    // tarkista onko "event" checkboxissa
     if (event.target.type === 'checkbox') {
-        // toggle the state
         toggle(event.target.parentElement.getAttribute('data-key'));
     }
 
-    // Check if that is delete-button
+    // tarkista delete-button
     if (event.target.classList.contains('delete-button')) {
-        // get id from data-key attribute's value of parent <li> where the delete butto is present
         deleteShopItem(event.target.parentElement.getAttribute('data-key'));
     }
 });
-
 
