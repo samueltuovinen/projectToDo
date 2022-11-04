@@ -92,3 +92,17 @@ footer {
     bottom: 0;
     padding: 20px;
 }
+h2 {
+    color: white;
+    padding: 20px;
+    font-size: 2rem;
+}
+.resetButton {
+    background-color: white;
+    color: black;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+}

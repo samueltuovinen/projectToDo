@@ -137,3 +137,8 @@ shoplistItems.addEventListener('click', function(event) {
     }
 });
 
+// Tyhjennetään localStorgae ja näytöllä olevat itemit
+resetBtn.addEventListener('click', function () {
+    localStorage.clear();
+    window.location.reload(true);
+})
