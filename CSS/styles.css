@@ -72,12 +72,12 @@ h1 {
 
 .delete-button {
     float: right;
-    background-color: rgb(33, 30, 54);
-    color: white;
+    background-color: white;
+    color: black;
     border: none;
     outline: none;
     border-radius: 5px;
-    padding: 2px 5px;
+    padding: 1px 5px;
     margin-left: 10px;
     font-size: 1.1rem;
 }
