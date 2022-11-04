@@ -141,4 +141,4 @@ shoplistItems.addEventListener('click', function(event) {
 resetBtn.addEventListener('click', function () {
     localStorage.clear();
     window.location.reload(true);
-})
+});

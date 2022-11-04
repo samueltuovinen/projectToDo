@@ -3,32 +3,41 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="CSS/styles.css">
-        <script src="https://kit.fontawesome.com/92c0fbeee3.js" crossorigin="anonymous"></script>
-
+        
         <title>Shopping list</title>
     </head>
     <body>
 
+        <header></header>
+
+
         <div class="container">
             <h1>SHOPPING LIST</h1>
 
-            <form class="todo-form" id="todo-form">
-                <input type="text" class="todo-input" id="todo-input" placeholder="What i need...">
+            <form class="shoplist-form" id="shoplist-form">
+                <input type="text" class="shoplist-input" id="shoplist-input" placeholder="What i need...">
                 <button type="submit" class="add-button">Add</button>
             </form>
 
-            <ul class="todo-items" id="todo-items">
-                <li class="item" data-key="1594003133171">
+        
+            <ul class="shoplist-items" id="shoplist-items">
+                <li class="item" id="item" data-key="1594003133171">
                     <input class="checkbox" type="checkbox">
+                    <button class="edit">Edit</button>
                     <button class="delete-button">X</button>
                 </li>
             </ul>
+
+            <h2>Completed</h2>
+            <div id="completed-shopitems"></div>
         </div>
+        
         <footer>
-            <p id="left">Items left</p>
+            <button type="button" class="resetButton" id="resetBtn">Clear all</button>
         </footer>
 
-        <script src="JS/todo.js"></script>
+
+        <script src="JS/shoppingList.js"></script>
     </body>
 
 </html>

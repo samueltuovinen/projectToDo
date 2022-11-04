@@ -69,6 +69,7 @@ h1 {
 .checkbox {
     margin-right: 10px;
 }
+
 .delete-button {
     float: right;
     background-color: rgb(33, 30, 54);
@@ -79,9 +80,8 @@ h1 {
     padding: 2px 5px;
     margin-left: 10px;
     font-size: 1.1rem;
-    font-weight: 500;
-    
 }
+
 .checked {
     text-decoration: line-through;
 }
@@ -92,11 +92,7 @@ footer {
     bottom: 0;
     padding: 20px;
 }
-h2 {
-    color: white;
-    padding: 20px;
-    font-size: 2rem;
-}
+
 .resetButton {
     background-color: white;
     color: black;
