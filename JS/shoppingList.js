@@ -59,11 +59,6 @@ function renderShoplist(shopitems) {
         li.setAttribute('class', 'item');
         // <li class="item" data-key="1594003133171"> </li>
         li.setAttribute('data-key', item.id);
-        /* <li class="item" data-key="1594003133171">
-                <input class="checkbox" type="checkbox">
-                Milk
-                <button class="delete-button">X</button>
-            </li> */
         // Jos item on valmis, lisätään "class" <li> jota kutsutaan "chekced", Se lisää line-through tyylin
         if (item.completed === true) {
             li.classList.add('checked');
